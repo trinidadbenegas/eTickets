@@ -1,0 +1,118 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model NewMovieVM;
+@using eTickets.Data;
+
+@{
+    ViewData["Title"] = "Update movie";
+
+}
+
+<div class="row">
+
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4>Upadate movie</h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8" offset-2>
+
+                <form method="post" asp-action="Edit">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label asp-for="Name">@Html.DisplayNameFor(model=> model.Name) </label>
+                                <input asp-for="Name" type="text" class="form-control">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="StartDate">@Html.DisplayNameFor(model=> model.StartDate) </label>
+                                <input asp-for="StartDate" type="date" class="form-control">
+                                <span asp-validation-for="StartDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="EndDate">@Html.DisplayNameFor(model=> model.EndDate) </label>
+                                <input asp-for="EndDate" type="date" class="form-control">
+                                <span asp-validation-for="EndDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price">@Html.DisplayNameFor(model=> model.Price) </label>
+                                <input asp-for="Price" type="number" class="form-control">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ImageURL">@Html.DisplayNameFor(model=> model.ImageURL) </label>
+                                <input asp-for="ImageURL" type="text" class="form-control">
+                                <span asp-validation-for="ImageURL" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CinemaId">@Html.DisplayNameFor(model=> model.CinemaId) </label>
+                                <select asp-for="CinemaId" type="text" class="form-control" asp-items="ViewBag.CinemaId">
+                                </select>
+                                <span asp-validation-for="CinemaId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MovieCategory">@Html.DisplayNameFor(model=> model.MovieCategory) </label>
+                                <select asp-for="MovieCategory" type="text" class="form-control" asp-items="@Html.GetEnumSelectList<MovieCategory>()">
+                                </select>
+                                <span asp-validation-for="MovieCategory" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProducerId">@Html.DisplayNameFor(model=> model.ProducerId) </label>
+                                <select asp-for="ProducerId" type="text" class="form-control" asp-items="ViewBag.ProducerId">
+                                </select>
+                                <span asp-validation-for="ProducerId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="ActorIds">@Html.DisplayNameFor(model=> model.ActorIds) </label>
+                                <select asp-for="ActorIds" type="text" class="form-control" multiple asp-items="ViewBag.ActorIds">
+                                </select>
+                                <span asp-validation-for="ActorIds" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Description">@Html.DisplayNameFor(model=> model.Description) </label>
+                                <textarea asp-for="Description" type="text" class="form-control"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group mt-3">
+
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <a asp-controller="Movies" asp-action="Index" class="btn btn-secondary">Back</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>

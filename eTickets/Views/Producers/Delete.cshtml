@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Producer
+
+
+>
+
+    <h1> Delete @Model.FullName </h1>
+
+<form method="post" asp-action="DeleteConfirmed">
+
+    <div class="mb-3">
+       
+        <input asp-for="Id" type="text" class="form-control" hidden>
+
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ProfilePictureURL">@Html.DisplayNameFor(model=> model.ProfilePictureURL) </label>
+        <input asp-for="ProfilePictureURL" type="text" class="form-control" readonly>
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="FullName">@Html.DisplayNameFor(model=> model.FullName) </label>
+        <input asp-for="FullName" type="text" class="form-control" readonly>
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="Bio">@Html.DisplayNameFor(model=> model.Bio) </label>
+        <input asp-for="Bio" type="text" class="form-control" readonly>
+        
+    </div>
+    <button class="btn btn-primary" type="submit">Delete</button>
+    <a asp-controller="Producers" asp-action="Index" class="btn btn-secondary">Volver</a>
+
+</form>
+
